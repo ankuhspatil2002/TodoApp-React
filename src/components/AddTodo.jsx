@@ -3,7 +3,7 @@ import "./AddTodo.css";
 import { v4 as uuidv4 } from "uuid";
 
 const AddTodo = () => {
-  const [todos, setTodos] = useState([{ value: "sampleTodo", id: uuidv4() }]);
+  const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
 
   function handleClick() {
@@ -15,6 +15,11 @@ const AddTodo = () => {
 
   function addTodos(event) {
     setNewTodo(event.target.value);
+  }
+
+  function deleteTodo(id) {
+    const filteredTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(filteredTodos);
   }
 
   function removeAll() {
@@ -32,19 +37,24 @@ const AddTodo = () => {
           placeholder="Enter a new todo"
         />
         <button type="button" className="todoBtn" onClick={handleClick}>
-          {" "}
-          Add{" "}
+          Add
         </button>
         <button type="button" className="todoBtn" onClick={removeAll}>
-          {" "}
-          Remove All{" "}
+          Remove All
         </button>
       </div>
+
       <div className="line"></div>
+
       <div className="displayTodo">
         <ul>
           {todos.map((todo) => (
-            <li key={todo.id}>{todo.value}</li>
+            <li key={todo.id}>
+              {todo.value}
+              <button className="deleteBtn" onClick={() => deleteTodo(todo.id)}>
+                Delete
+              </button>
+            </li>
           ))}
         </ul>
       </div>
