@@ -1,0 +1,57 @@
+.addTodo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .inputbox {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .todoInput {
+    width: 300px;
+    height: 35px;
+    padding: 5px;
+    border: 2px solid rgb(106, 97, 255);
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .todoBtn {
+    width: 100px;
+    height: 35px;
+    background-color: rgb(106, 97, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .todoBtn:hover {
+    background-color: rgb(85, 77, 230);
+  }
+  
+  .line {
+    width: 50%;
+    height: 2px;
+    background-color: rgb(106, 97, 255);
+    margin-top: 10px;
+  }
+  
+  .displayTodo ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .displayTodo li {
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  

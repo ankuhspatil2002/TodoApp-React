@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./toggleMode.css";
-import { useState } from "react";
 
 const ToggleMode = () => {
-  const [clicked, setClicked] = useState(false);
-  const [toggle, setToggle] = useState("fa-regular fa-moon");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  let handleClick = () => {
-    setClicked(!clicked);
-    if (clicked) {
-      setToggle("fa-regular fa-sun");
-    } else {
-      setToggle("fa-regular fa-moon");
-    }
+  // Apply the theme when the component mounts or theme changes
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme); // Persist theme on reload
+  }, [theme]);
+
+  // Toggle between light and dark themes
+  const handleThemeToggle = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
-    <div className="toggleButton" onClick={handleClick}>
-        <i className={toggle}></i>
-    </div>
+    <button className="toggleButton" onClick={handleThemeToggle}>
+      {theme === "light" ? (
+        <i className="fa-regular fa-moon"></i>
+      ) : (
+        <i className="fa-regular fa-sun"></i>
+      )}
+    </button>
   );
 };
 
