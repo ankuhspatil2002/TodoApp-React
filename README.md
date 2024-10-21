@@ -9,6 +9,15 @@ This is a Todo App built with React. It allows you to add, delete, and manage yo
 - ❌ **Clear All Todos**: Remove all tasks at once.
 - 📱 **Responsive Design**: Works on different screen sizes.
 
+## Tech Stack
+
+- React.js
+- CSS Modules
+- Vercel for deployment
+
+## Test Link : 
+
+https://todo-app-react-phsqsmiuu-ankush-patils-projects-ffcfadd4.vercel.app/
 
 ## Installation
 
