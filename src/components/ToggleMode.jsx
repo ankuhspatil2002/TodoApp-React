@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "./toggleMode.css";
+import "./ToggleMode.css";
 
 const ToggleMode = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  // Apply the theme when the component mounts or theme changes
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme); // Persist theme on reload
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Toggle between light and dark themes
   const handleThemeToggle = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
